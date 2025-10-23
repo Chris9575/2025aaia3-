@@ -1,28 +1,29 @@
-//week07-4.cpp ¾Ç²ß­pµeSimulation¼ÒÀÀ²Ä4ÃD
+//week07-4.cpp å­¸ç¿’è¨ˆç•«Simulationæ¨¡æ“¬ç¬¬4é¡Œ
 //1041. Robot Bounded In Circle
 class Solution {
 public:
     bool isRobotBounded(string instructions) {
-        instructions=instructions+instructions+instructions+instructions;//¨«4¦¸
+        instructions=instructions+instructions+instructions+instructions;//èµ°4æ¬¡
         cout<<instructions;
-        int x=0,y=0;//x®y¼Ð,y®y¼Ð
-        int d=0;//d:¤è¦Vdirection 0:¥_ 1:ªF 2:«n 3:¦è
-        //¥kÂàd=(d+1)%4 ¨ú4ªº¼Æ
-        //¥ªÂàd=(d-1+4)%4=(d+3)%4 ³ºµM¥i¥H­Ë¹L¨Ó,¤Ó¯«©_
-        int dx[4]={0,1,0,-1};//«e¶i¤@®æ®É,·|¨«x+=dx[d]¤Îy+=dy[d]
-        int dy[4]={1,0,-1,0};//³o¨â¦æ¬O¦a¹Ï2D¼Ò«¬ªººëµØ,¨M©w«e¶i¦h¤Ö
-        for(char c : instructions){//¨Ì·Ó¦r¥Àªº«ü¥O¤@¦¸°µ1­Ó°Ê§@
-            if(c=='G'){//«e¶i¤@®æ,°t¦Xdx[d] dy[d]«e¶i
+        int x=0,y=0;//xåº§æ¨™,yåº§æ¨™
+        int d=0;//d:æ–¹å‘direction 0:åŒ— 1:æ± 2:å— 3:è¥¿
+        //å³è½‰d=(d+1)%4 å–4çš„æ•¸
+        //å·¦è½‰d=(d-1+4)%4=(d+3)%4 ç«Ÿç„¶å¯ä»¥å€’éŽä¾†,å¤ªç¥žå¥‡
+        int dx[4]={0,1,0,-1};//å‰é€²ä¸€æ ¼æ™‚,æœƒèµ°x+=dx[d]åŠy+=dy[d]
+        int dy[4]={1,0,-1,0};//é€™å…©è¡Œæ˜¯åœ°åœ–2Dæ¨¡åž‹çš„ç²¾è¯,æ±ºå®šå‰é€²å¤šå°‘
+        for(char c : instructions){//ä¾ç…§å­—æ¯çš„æŒ‡ä»¤ä¸€æ¬¡åš1å€‹å‹•ä½œ
+            if(c=='G'){//å‰é€²ä¸€æ ¼,é…åˆdx[d] dy[d]å‰é€²
                 x += dx[d];
                 y += dy[d];
-            }else if(c=='R'){//¥kÂà
+            }else if(c=='R'){//å³è½‰
                 d=(d+1)%4;
-            }else if(c=='L'){//¥ªÂà
+            }else if(c=='L'){//å·¦è½‰
                 d=(d+3)%4;
             }
-        }//Â÷¶}°j°é®É....³ºµM·|¤@ª½ª½¨«,¦³®É­Ô¨«¤£¦^¨Ó,¦³®É­Ô·|¦^¨Ó
-        cout<<'x'<<x<<'y'<<y<<endl;
+        }//é›¢é–‹è¿´åœˆæ™‚....ç«Ÿç„¶æœƒä¸€ç›´ç›´èµ°,æœ‰æ™‚å€™èµ°ä¸å›žä¾†,æœ‰æ™‚å€™æœƒå›žä¾†
+        //cout<<'x'<<x<<'y'<<y<<endl;Debugç”¨çš„
         if(x==0 && y==0)return true;
         else return false;
     }
 };
+
